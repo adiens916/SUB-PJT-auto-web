@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
 
 
-account_id = (By.ID, "userId")
-account_pw = (By.ID, "pwNo")
-login_button = (By.CLASS_NAME, "btn-login")
+account_id = (By.ID, "id")
+account_pw = (By.ID, "pw")
+login_button = (By.ID, "log.login")
 
-menu_bar = (By.CSS_SELECTOR, "div.container-fluid")
+next_page_element = (By.ID, "query")

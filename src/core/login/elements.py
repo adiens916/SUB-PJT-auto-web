@@ -1,1 +1,1 @@
-URL = "https://www.yebigun1.mil.kr/dmobis/index_main.do"
+URL = "https://nid.naver.com/nidlogin.login?mode=form&url=https://www.naver.com/"

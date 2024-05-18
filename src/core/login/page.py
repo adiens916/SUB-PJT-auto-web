@@ -14,5 +14,5 @@ class LoginPage(BasePage):
         self.find(account_pw).send_keys(PW)
         self.find(login_button).click()
 
-        self.wait_to_load(menu_bar)
+        self.wait_to_load(next_page_element)
         self.driver.execute_script("window.stop();")
