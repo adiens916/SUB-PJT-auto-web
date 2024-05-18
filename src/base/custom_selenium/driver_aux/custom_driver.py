@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-from driver_aux.custom_element import CustomWebElement
+from .custom_element import CustomWebElement
 
 
 class CustomWebDriver(webdriver.Chrome):

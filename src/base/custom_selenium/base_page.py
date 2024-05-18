@@ -3,7 +3,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
-from base.custom_selenium.driver import CustomWebDriver, CustomWebElement
+from .driver_aux.custom_driver import CustomWebDriver
+from .driver_aux.custom_element import CustomWebElement
 
 
 class BasePage:
