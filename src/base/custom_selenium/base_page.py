@@ -3,13 +3,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 
+from .driver import Driver
 from .driver_aux.custom_driver import CustomWebDriver
 from .driver_aux.custom_element import CustomWebElement
 
 
 class BasePage:
-    def __init__(self, driver: CustomWebDriver):
-        self.driver = driver
+    def __init__(self, driver_num: int = 0, driver_type: str = "Chrome"):
+        # Get (or create) the driver automatically by driver number
+        self.driver = Driver.get_driver(driver_num, driver_type)
+
         # 명시적 대기 시 최대 5초간 대기
         self.wait = WebDriverWait(self.driver, 5)
 
