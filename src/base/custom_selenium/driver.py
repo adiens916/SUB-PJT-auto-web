@@ -1,5 +1,5 @@
-from driver_aux.custom_driver import CustomWebDriver
-from driver_aux.custom_option import CustomOption
+from .driver_aux.custom_driver import CustomWebDriver
+from .driver_aux.custom_option import CustomOption
 
 
 class Driver:
