@@ -104,3 +104,26 @@ class BasePage:
             return "none" in display
 
         return _predicate
+
+    def get_cookies(self, keys: set[str] = set()) -> dict:
+        """
+        Get cookie dictionary from cookie list
+
+        Args:
+            keys: set of wanted keys (default empty set)
+
+        Returns:
+            dictionary with cookie key-value pairs
+            e.g.) {"JSESSIONID": "1F40OD123..."}
+
+        """
+        cookie_list = self.driver.get_cookies()
+        cookie_dict = {}
+
+        for cookie in cookie_list:
+            cookie_dict.update({cookie["name"]: cookie["value"]})
+
+        if any(keys):
+            cookie_dict = {key: cookie_dict[key] for key in keys}
+
+        return cookie_dict
