@@ -1,21 +1,18 @@
-from base.custom_selenium.driver import CustomWebDriver
-from base.custom_selenium.base_page import BasePage
-from login.locators import *
-from login.elements import URL
+import __init__
+from src.base.custom_selenium.base_page import BasePage
+from src.core.login.locators import *
+from src.core.login.elements import URL
 from account import ID, PW
 
 
 class LoginPage(BasePage):
-    def __init__(self, driver: CustomWebDriver):
-        super().__init__(driver)
-        self.driver.get(URL)
-
     def login(self):
+        self.driver.get(URL)
         self.wait_to_load(login_button)
 
         self.find(account_id).send_keys(ID)
         self.find(account_pw).send_keys(PW)
         self.find(login_button).click()
 
-        self.wait_to_load(menu_bar)
+        self.wait_to_load(next_page_element)
         self.driver.execute_script("window.stop();")
