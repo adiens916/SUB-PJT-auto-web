@@ -10,7 +10,8 @@ from .driver_aux.custom_element import CustomWebElement
 class BasePage:
     def __init__(self, driver: CustomWebDriver):
         self.driver = driver
-        self.wait = WebDriverWait(self.driver, 5)  # 명시적 대기 시 최대 5초간 대기
+        # 명시적 대기 시 최대 5초간 대기
+        self.wait = WebDriverWait(self.driver, 5)
 
     def find(self, locator: tuple[str, str]) -> CustomWebElement:
         """
@@ -76,6 +77,10 @@ class BasePage:
         """해당 요소가 페이지의 DOM에 있는지 확인합니다."""
         self.wait.until(EC.presence_of_element_located(locator))
 
+    def wait_to_click(self, locator: tuple[str, str]):
+        """해당 요소가 클릭이 가능한지 확인합니다."""
+        self.wait.until(EC.element_to_be_clickable(locator))
+
     def wait_to_see(self, locator: tuple[str, str]):
         """해당 요소가 페이지에서 보이는지 확인합니다."""
         self.wait.until(EC.visibility_of_element_located(locator))
@@ -96,7 +101,3 @@ class BasePage:
             return "none" in display
 
         return _predicate
-
-    def wait_to_click(self, locator: tuple[str, str]):
-        """해당 요소가 클릭이 가능한지 확인합니다."""
-        self.wait.until(EC.element_to_be_clickable(locator))
